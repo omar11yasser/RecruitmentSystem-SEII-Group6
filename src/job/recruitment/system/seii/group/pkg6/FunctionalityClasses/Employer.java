@@ -8,6 +8,9 @@ import java.util.*;
 public class Employer extends User{
     private String companyCategory;
     private List<Vacancy> postedVacancies;
+
+    public Employer() {
+    }
     
     Employer(String userName , String userMail , String userMobileNumber , String companyCategory){
         accountDataAndUtils = new Account();

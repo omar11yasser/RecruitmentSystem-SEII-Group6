@@ -96,6 +96,7 @@ public class Vacancy {
         return listOfApplicantions;
     }
 
+    
     public void setListOfApplicantions(List<JobApplication> listOfApplicantions) {
         this.listOfApplicantions = listOfApplicantions;
     }
@@ -109,7 +110,6 @@ public class Vacancy {
     }
     
     
-
     public List<JobApplication> viewSubmittedApplications(){
         
         return listOfApplicantions;
