@@ -16,6 +16,8 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
     public EmployerCreateVacancy() {
         initComponents();
         employer = new Employer();
+        vacacncyAcceptedLabel.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -30,6 +32,7 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
         vacancySubmitButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         vacancyJobRequirmentsTextField = new javax.swing.JTextField();
+        vacacncyAcceptedLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,30 +70,38 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel4.setText("Vacancy job requirments");
 
+        vacacncyAcceptedLabel.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        vacacncyAcceptedLabel.setForeground(new java.awt.Color(102, 255, 51));
+        vacacncyAcceptedLabel.setText("Vacancy submitted!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(306, 306, 306)
-                .addComponent(vacancySubmitButton)
-                .addContainerGap(287, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(68, 68, 68)
-                        .addComponent(vacancyJobRequirmentsTextField))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(vacancyTitleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
-                            .addComponent(vacancyDeadlineTextField)))
-                    .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(68, 68, 68)
+                                .addComponent(vacancyJobRequirmentsTextField))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(72, 72, 72)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(vacancyTitleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                                    .addComponent(vacancyDeadlineTextField)))
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(vacacncyAcceptedLabel)
+                            .addComponent(vacancySubmitButton))
+                        .addGap(0, 276, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -113,7 +124,9 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(vacancyJobRequirmentsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(vacacncyAcceptedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(vacancySubmitButton)
                 .addContainerGap())
         );
@@ -146,6 +159,7 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
                 // insert the vacancy into the database.    
                 try{
                     VacancyTableDatabasUtils.insertVacancyIntoDatabase(vacancy);
+                    vacacncyAcceptedLabel.setVisible(true);
                 } catch(SQLException e){
                     e.printStackTrace();
                 }
@@ -195,6 +209,7 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel vacacncyAcceptedLabel;
     private javax.swing.JTextField vacancyDeadlineTextField;
     private javax.swing.JTextField vacancyJobRequirmentsTextField;
     private javax.swing.JButton vacancySubmitButton;
