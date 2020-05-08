@@ -31,25 +31,29 @@ public class Admin {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return 
+        return null; 
     }
 
     public static Admin Login(String email, String password){
-        Connection con = DatabaseConnection.connect();
-        String query = "SELECT * FROM admins WHERE email = '" + email +"' & password = '" + password + "'";
-        Statement stmt  = con.createStatement();
-        ResultSet result = stmt.executeQuery(query);
-
-        if(false/*ResultSet.Lentgh > 0*/) {
-            Admin AdminObject = new Admin();
-            AdminObject.adminName = "name";
-            AdminObject.adminMail = email;
-            AdminObject.adminPassword = password;
-            return AdminObject;
-        } else {
-            return null;
+        try {
+            Connection con = DatabaseConnection.connect();
+            String query = "SELECT * FROM admins WHERE email = '" + email +"' & password = '" + password + "'";
+            Statement stmt  = con.createStatement();
+            ResultSet result = stmt.executeQuery(query);
+            
+            if(false/*ResultSet.Lentgh > 0*/) {
+                Admin AdminObject = new Admin();
+                AdminObject.adminName = "name";
+                AdminObject.adminMail = email;
+                AdminObject.adminPassword = password;
+                return AdminObject;
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return null;
     }
 
     public void LogOut(){
