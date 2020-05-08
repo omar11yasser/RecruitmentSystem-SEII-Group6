@@ -13,7 +13,7 @@ public class Vacancy {
     private long deadlineTimeStamp;
     private long creationTimeStamp;
     private String vacancyState;
-        private List<JobApplication> listOfApplicantions;
+    private String referenceToVacancyApplicantions;
     private List<Admin> observersList;
 
     public Vacancy(String vacancyTitle, String vacancyJobRequirments, String vacancyEmployerId, long deadlineTimeStamp4) {
@@ -24,7 +24,7 @@ public class Vacancy {
     }
     
     public Vacancy(String vacancyID, String vacancyTitle, String vacancyJobRequirments, String vacancyEmployerId, long deadlineTimeStamp
-            , long creationTimeStamp, String vacancyState, List<JobApplication> listOfApplicantions, List<Admin> observersList) {
+            , long creationTimeStamp, String vacancyState, String referenceToVacancyApplicantions, List<Admin> observersList) {
         this.vacancyID = vacancyID;
         this.vacancyTitle = vacancyTitle;
         this.vacancyJobRequirments = vacancyJobRequirments;
@@ -32,7 +32,7 @@ public class Vacancy {
         this.deadlineTimeStamp = deadlineTimeStamp;
         this.creationTimeStamp = creationTimeStamp;
         this.vacancyState = vacancyState;
-        this.listOfApplicantions = listOfApplicantions;
+        this.referenceToVacancyApplicantions = referenceToVacancyApplicantions;
         this.observersList = observersList;
     }
 
@@ -92,13 +92,13 @@ public class Vacancy {
         this.vacancyState = vacancyState;
     }
 
-    public List<JobApplication> getListOfApplicantions() {
-        return listOfApplicantions;
+    public String getReferenceToVacancyApplicantions() {
+        return referenceToVacancyApplicantions;
     }
 
     
-    public void setListOfApplicantions(List<JobApplication> listOfApplicantions) {
-        this.listOfApplicantions = listOfApplicantions;
+    public void setReferenceToVacancyApplicantions(String referenceToVacancyApplicantions) {
+        this.referenceToVacancyApplicantions = referenceToVacancyApplicantions;
     }
 
     public List<Admin> getObserversList() {
@@ -112,6 +112,6 @@ public class Vacancy {
     
     public List<JobApplication> viewSubmittedApplications(){
         
-        return listOfApplicantions;
+        return new ArrayList<JobApplication>();
     }
 }
