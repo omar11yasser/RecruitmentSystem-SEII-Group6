@@ -35,6 +35,7 @@ public class VacancyTableDatabasUtils extends DatabaseConnection {
 
     }
     
+    
     public static Vacancy retieveFromVacancyUsingVacancyId(String vacancyId) throws SQLException{
         Connection con = DatabaseConnection.connect();
         String query = "SELECT * FROM vacancies WHERE vacancy_id = '" + vacancyId +"'";
