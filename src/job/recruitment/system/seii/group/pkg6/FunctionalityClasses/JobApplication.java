@@ -5,11 +5,13 @@
  */
 package job.recruitment.system.seii.group.pkg6.FunctionalityClasses;
 
+import java.util.List;
+
 /**
  *
  * @author Omar
  */
-public class JobApplication {
+public class JobApplication extends Vacancy  {
   
    private String ApplicationId;
    private String ApllicationAuthourID;
@@ -18,7 +20,8 @@ public class JobApplication {
    private long SubmissionDataTimeStamp;
    private String UserFilledResponse;
 
-    public JobApplication(String ApplicationId, String ApllicationAuthourID, String VacancyID, String EmployerResponse, long SubmissionDataTimeStamp, String UserFilledResponse) {
+    public JobApplication(String ApplicationId, String ApllicationAuthourID, String VacancyID, String EmployerResponse, long SubmissionDataTimeStamp, String UserFilledResponse, String vacancyTitle, String vacancyJobRequirments, String vacancyEmployerId, long deadlineTimeStamp4) {
+        super(vacancyTitle, vacancyJobRequirments, vacancyEmployerId, deadlineTimeStamp4);
         this.ApplicationId = ApplicationId;
         this.ApllicationAuthourID = ApllicationAuthourID;
         this.VacancyID = VacancyID;
@@ -26,6 +29,9 @@ public class JobApplication {
         this.SubmissionDataTimeStamp = SubmissionDataTimeStamp;
         this.UserFilledResponse = UserFilledResponse;
     }
+
+    
+   
 
     public String getApplicationId() {
         return ApplicationId;
