@@ -1,5 +1,7 @@
 package job.recruitment.system.seii.group.pkg6.FunctionalityClasses;
+import java.sql.SQLException;
 import java.util.*;
+import job.recruitment.system.seii.group.pkg6.Utils.VacancyTableDatabasUtils;
 /**
  *
  * @author Omar
@@ -123,5 +125,10 @@ public class Vacancy {
     public List<JobApplication> viewSubmittedApplications(){
         
         return listOfApplicantions;
+    }
+    
+    // Get vacancy details using vacancy ID
+    public Vacancy getVacancyUsingId(String vacancyId) throws SQLException{
+        return  VacancyTableDatabasUtils.retieveFromVacancyUsingVacancyId(vacancyId);
     }
 }

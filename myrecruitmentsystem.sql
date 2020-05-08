@@ -45,7 +45,9 @@ CREATE TABLE IF NOT EXISTS `vacancies` (
 
 INSERT INTO `vacancies` (`vacancy_id`, `vacancy_employer_id`, `vacancy_title`, `vacancy_job_requirements`, `vacancy_deadline_timestamp`, `vacancy_creation_timestamp`, `vacancy_state`) VALUES
 ('ID', 'EmployerId', 'VacancyTitle', 'Job requirments', '1970-01-19 09:22:23', '1970-01-19 09:22:23', 'available'),
-('vacancy1588947610778', 'wejff', 'Android native developer', 'JAVA - Kotlin - flutter.', '2020-05-31 22:00:00', '2020-05-08 14:20:11', 'available');
+('vacancy1588947610778', 'wejff', 'Android native developer', 'JAVA - Kotlin - flutter.', '2020-05-31 22:00:00', '2020-05-08 14:20:11', 'available'),
+('vacancy1588953794997', 'wejff', 'IOS developer', 'Swift - objective C - lives near new Cairo.', '2001-04-04 22:00:00', '2020-05-08 16:03:15', 'available'),
+('vacancy1588955186610', 'wejff', 'Marketing manager', 'Excel', '2020-04-02 22:00:00', '2020-05-08 16:26:27', 'available');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
