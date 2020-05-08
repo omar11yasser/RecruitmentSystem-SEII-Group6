@@ -1,5 +1,6 @@
 package job.recruitment.system.seii.group.pkg6.FunctionalityClasses;
 
+import Interfaces.NewJobApplicationSubject;
 import java.sql.SQLException;
 import java.util.List;
 import job.recruitment.system.seii.group.pkg6.Utils.VacancyTableDatabasUtils;
@@ -9,7 +10,7 @@ import job.recruitment.system.seii.group.pkg6.Utils.VacancyTableDatabasUtils;
  *
  * @author Omar
  */
-public class JobApplication extends Vacancy  {
+public class JobApplication extends Vacancy implements NewJobApplicationSubject  {
   
    private String ApplicationId;
    private String ApllicationAuthourID;
@@ -78,10 +79,14 @@ public class JobApplication extends Vacancy  {
     public void setUserFilledResponse(String UserFilledResponse) {
         this.UserFilledResponse = UserFilledResponse;
     }
-    public void GetVDetail() throws SQLException
-    {
-       
+    public void GetVDetail() throws SQLException{
+ 
         VacancyTableDatabasUtils.retieveFromVacancyUsingVacancyId(VacancyID);
-        
     }
+    
+    
+    // observer functions
+        public void addObserver(Employer observer){}
+    public void removeObserver(Employer oobserver){}
+    public void updateAll(JobApplication jobApplication){}
 }

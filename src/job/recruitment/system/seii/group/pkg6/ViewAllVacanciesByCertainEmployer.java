@@ -5,7 +5,12 @@
  */
 package job.recruitment.system.seii.group.pkg6;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import job.recruitment.system.seii.group.pkg6.FunctionalityClasses.Vacancy;
+import job.recruitment.system.seii.group.pkg6.Utils.VacancyTableDatabasUtils;
 import static job.recruitment.system.seii.group.pkg6.Utils.VacancyTableDatabasUtils.retrieveAllVacanciesOfACertainEmployer;
 import net.proteanit.sql.DbUtils;
 
@@ -14,10 +19,11 @@ import net.proteanit.sql.DbUtils;
  * @author Omar
  */
 public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
-
+    private ResultSet vacanciesResultSet;
     private void populateJTableUsingAllTheEmloyerVacancies(){
         try{
-        vacanciesJTable.setModel(DbUtils.resultSetToTableModel(retrieveAllVacanciesOfACertainEmployer("wejff")));
+            vacanciesResultSet = retrieveAllVacanciesOfACertainEmployer("wejff");
+            vacanciesJTable.setModel(DbUtils.resultSetToTableModel(vacanciesResultSet));
         } catch(SQLException e){
             e.printStackTrace();
         }
@@ -33,6 +39,7 @@ public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         vacanciesJTable = new javax.swing.JTable();
+        modifySelectedButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +71,13 @@ public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(vacanciesJTable);
 
+        modifySelectedButton.setText("Modify selected vacancy");
+        modifySelectedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifySelectedButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,17 +86,33 @@ public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(modifySelectedButton)
+                .addGap(264, 264, 264))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(modifySelectedButton)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void modifySelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifySelectedButtonActionPerformed
+        int row = vacanciesJTable.getSelectedRow();
+        String selectedVacancyId = vacanciesJTable.getModel().getValueAt(row, 0).toString();
+        try {
+            Vacancy vacancy = VacancyTableDatabasUtils.retieveFromVacancyUsingVacancyId("wejff");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_modifySelectedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +151,7 @@ public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modifySelectedButton;
     private javax.swing.JTable vacanciesJTable;
     // End of variables declaration//GEN-END:variables
 }
