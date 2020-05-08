@@ -20,7 +20,7 @@ public class TextUtils {
     
     // Checks if the user entered the right date format to prepare it to be converted into a long.
     public static long transformDateIntoALongTimestamp(String dateValue) throws ParseException{
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date parsedDate = dateFormat.parse(dateValue);
         long timeLong = parsedDate.getTime();
         return timeLong;

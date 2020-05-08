@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package job.recruitment.system.seii.group.pkg6;
 
 import java.sql.ResultSet;
@@ -22,7 +17,9 @@ public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
     private ResultSet vacanciesResultSet;
     private void populateJTableUsingAllTheEmloyerVacancies(){
         try{
+            // Retrieve the resultSet of retrieving all the vacancies assiciated with a certain user ID.
             vacanciesResultSet = retrieveAllVacanciesOfACertainEmployer("wejff");
+            //Set the result set to the Jtable to display the vacancies.
             vacanciesJTable.setModel(DbUtils.resultSetToTableModel(vacanciesResultSet));
         } catch(SQLException e){
             e.printStackTrace();
@@ -106,17 +103,21 @@ public class ViewAllVacanciesByCertainEmployer extends javax.swing.JFrame {
 
     private void modifySelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifySelectedButtonActionPerformed
         int row = vacanciesJTable.getSelectedRow();
+        // Get the selected row's vacancy Id.
         String selectedVacancyId = vacanciesJTable.getModel().getValueAt(row, 0).toString();
         try {
-            Vacancy vacancy = VacancyTableDatabasUtils.retieveFromVacancyUsingVacancyId("wejff");
+            // Get the vacancy data
+            Vacancy vacancy = VacancyTableDatabasUtils.retieveFromVacancyUsingVacancyId(selectedVacancyId);
+            // Pass the selected vacancy to be modified in the JFrame class ModifySelectedVacancyJFrame
+            ModifySelectedVacancyJFrame mo = new ModifySelectedVacancyJFrame(vacancy);
+            // Start ModifySelectedVacancyJFrame
+            mo.setVisible(true);
         } catch (SQLException ex) {
+            System.out.println("Please selecte a row");
             ex.printStackTrace();
         }
     }//GEN-LAST:event_modifySelectedButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -126,7 +126,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="vacancyDeadlineTextField">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" (yyyy/MM/dd)"/>
+        <Property name="text" type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>

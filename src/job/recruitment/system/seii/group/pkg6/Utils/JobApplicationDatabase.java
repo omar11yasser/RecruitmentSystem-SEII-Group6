@@ -35,23 +35,23 @@ public class JobApplicationDatabase extends DatabaseConnection {
     
     
     public static JobApplication retieveApplication(String ApplicationId) throws SQLException{
-        Connection con = DatabaseConnection.connect();
-        String query = "SELECT * FROM  WHERE Application_Id = '" + ApplicationId +"'";
-        Statement stmt  = con.createStatement();
-        ResultSet result = stmt.executeQuery(query);
-        JobApplication Application = new JobApplication();
-        
-        // Navigate the result 
-        while (result.next()){
-        Application.setApplicationId(result.getString(1));
-        Application.setApllicationAuthourID(result.getString(2));
-        Application.setUserFilledResponse(result.getString(3));
-        Application.setVacancyID(result.getString(4));
-
-       
-      
-        con.close();
-        return Application;
+//        Connection con = DatabaseConnection.connect();
+//        String query = "SELECT * FROM  WHERE Application_Id = '" + ApplicationId +"'";
+//        Statement stmt  = con.createStatement();
+//        ResultSet result = stmt.executeQuery(query);
+//        JobApplication Application = new JobApplication();
+//        
+//        // Navigate the result 
+//        while (result.next()){
+//        Application.setApplicationId(result.getString(1));
+//        Application.setApllicationAuthourID(result.getString(2));
+//        Application.setUserFilledResponse(result.getString(3));
+//        Application.setVacancyID(result.getString(4));
+//
+//       
+//      
+//        con.close();
+        return null;
     }
 
     

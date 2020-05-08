@@ -51,7 +51,7 @@ public class EmployerCreateVacancy extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel3.setText("Vacancy deadline");
 
-        vacancyDeadlineTextField.setText(" (yyyy/MM/dd)");
+        vacancyDeadlineTextField.setText("yyyy-MM-dd HH:mm:ss");
         vacancyDeadlineTextField.setToolTipText("");
         vacancyDeadlineTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
