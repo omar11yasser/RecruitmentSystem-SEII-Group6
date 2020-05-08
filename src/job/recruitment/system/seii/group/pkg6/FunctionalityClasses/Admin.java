@@ -30,7 +30,6 @@ public class Admin {
         } catch (SQLException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return null; 
     }
 
@@ -70,8 +69,15 @@ public class Admin {
         return null;
     }
 
-    public void approveNewEmployers(){
-
+    public void approveNewEmployers(String EmployerId){
+        try {
+            Connection con = DatabaseConnection.connect();
+            String query = "UPDATE `accounts` SET `active` = '1' WHERE `accounts`.`id` = '"+EmployerId+"'";
+            Statement stmt  = con.createStatement();
+            ResultSet result = stmt.executeQuery(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 

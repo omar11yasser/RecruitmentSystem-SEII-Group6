@@ -60,3 +60,16 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO `admins` (`id`, `name`, `email`, `password`) VALUES
 (1, 'Super Admin', 'admin@admin.com', '123456');
+
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `accounts` (`id`, `name`, `email`, `mobile`, `password`, `active`, `type`) VALUES
+(1, 'User Name', 'mail@wxample.com', '12345600', '123456', 1, 'user');
