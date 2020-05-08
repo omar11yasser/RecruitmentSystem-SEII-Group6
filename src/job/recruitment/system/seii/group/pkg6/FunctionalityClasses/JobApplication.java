@@ -1,6 +1,9 @@
 package job.recruitment.system.seii.group.pkg6.FunctionalityClasses;
 
+import java.sql.SQLException;
 import java.util.List;
+import job.recruitment.system.seii.group.pkg6.Utils.VacancyTableDatabasUtils;
+
 
 /**
  *
@@ -74,5 +77,11 @@ public class JobApplication extends Vacancy  {
 
     public void setUserFilledResponse(String UserFilledResponse) {
         this.UserFilledResponse = UserFilledResponse;
+    }
+    public void GetVDetail() throws SQLException
+    {
+       
+        VacancyTableDatabasUtils.retieveFromVacancyUsingVacancyId(VacancyID);
+        
     }
 }
