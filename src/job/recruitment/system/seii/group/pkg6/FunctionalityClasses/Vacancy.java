@@ -1,6 +1,5 @@
 package job.recruitment.system.seii.group.pkg6.FunctionalityClasses;
 import java.util.*;
-
 /**
  *
  * @author Omar
@@ -13,16 +12,21 @@ public class Vacancy {
     private long deadlineTimeStamp;
     private long creationTimeStamp;
     private String vacancyState;
-        private List<JobApplication> listOfApplicantions;
+    private List<JobApplication> listOfApplicantions;
     private List<Admin> observersList;
-
-    public Vacancy(String vacancyTitle, String vacancyJobRequirments, String vacancyEmployerId, long deadlineTimeStamp4) {
+    
+    
+    
+    // Constructor to be used when creating new vacancies.
+    public Vacancy(String vacancyTitle, String vacancyJobRequirments, String vacancyEmployerId, long deadlineTimeStamp) {
         this.vacancyTitle = vacancyTitle;
         this.vacancyJobRequirments = vacancyJobRequirments;
         this.vacancyEmployerId = vacancyEmployerId;
         this.deadlineTimeStamp = deadlineTimeStamp;
+        // Add the current timestamp to the newely created vacancy as the creation time stamp.
+        this.creationTimeStamp = System.currentTimeMillis();
     }
-    
+    // Constructor to be used when retrieving already existing vacancies.
     public Vacancy(String vacancyID, String vacancyTitle, String vacancyJobRequirments, String vacancyEmployerId, long deadlineTimeStamp
             , long creationTimeStamp, String vacancyState, List<JobApplication> listOfApplicantions, List<Admin> observersList) {
         this.vacancyID = vacancyID;
@@ -36,6 +40,11 @@ public class Vacancy {
         this.observersList = observersList;
     }
 
+    public Vacancy() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    // Getters and setters for the class' data.
     public String getVacancyID() {
         return vacancyID;
     }
@@ -110,6 +119,7 @@ public class Vacancy {
     }
     
     
+    // Used to retrieve the submitted applications for this vacancy.
     public List<JobApplication> viewSubmittedApplications(){
         
         return listOfApplicantions;
