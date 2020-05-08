@@ -43,14 +43,13 @@ public class JobApplicationDatabase extends DatabaseConnection {
         
         // Navigate the result 
         while (result.next()){
-        Application.setVacancyID(result.getString(1));
-        Application.setVacancyEmployerId(result.getString(2));
-        Application.setVacancyTitle(result.getString(3));
-        Application.setVacancyJobRequirments(result.getString(4));
-        Application.setDeadlineTimeStamp(result.getTimestamp(5).getTime());
-        Application.setCreationTimeStamp(result.getTimestamp(6).getTime());
-        Application.setVacancyState(result.getString(7));
-        }
+        Application.setApplicationId(result.getString(1));
+        Application.setApllicationAuthourID(result.getString(2));
+        Application.setUserFilledResponse(result.getString(3));
+        Application.setVacancyID(result.getString(4));
+
+       
+      
         con.close();
         return Application;
     }
