@@ -57,4 +57,12 @@ public class VacancyTableDatabasUtils extends DatabaseConnection {
         return vacancy;
     }
     
+    public static ResultSet retrieveAllVacanciesOfACertainEmployer(String EmployerId) throws SQLException{
+        Connection con = DatabaseConnection.connect();
+        String query = "SELECT * FROM vacancies WHERE vacancy_employer_id = '" + EmployerId +"'";
+        Statement stmt  = con.createStatement();
+        ResultSet result = stmt.executeQuery(query);
+        return result;
+    }
+    
 }
